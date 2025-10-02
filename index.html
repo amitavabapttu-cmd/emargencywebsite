@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Info QR</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- QRCode library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Emergency Info</h1>
+        <form id="infoForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="contact" placeholder="Contact Number" required>
+            <input type="text" id="whatsapp" placeholder="WhatsApp Number" required>
+            <input type="text" id="address" placeholder="Address">
+            <input type="file" id="photo" accept="image/*">
+            <button type="submit">Generate QR & Details</button>
+        </form>
+
+        <div id="details" class="hidden">
+            <img id="photoDisplay" src="" alt="Photo" />
+            <p id="nameDisplay"></p>
+            <p id="contactDisplay"></p>
+            <p id="addressDisplay"></p>
+            <button id="callBtn">Call Now</button>
+            <button id="whatsappBtn">WhatsApp Now</button>
+            <button id="locationBtn">Get GPS Location</button>
+            <p id="locationDisplay"></p>
+            <p class="credit">Design by Amitava Saha</p>
+        </div>
+
+        <div id="qrcodeContainer">
+            <h2>Scan QR to Open Website</h2>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Generate QR Code
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://your-github-username.github.io/your-repo-name/",
+            width: 150,
+            height: 150,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
